@@ -36,14 +36,32 @@ Best played with friends."</p>
   </main>
 
   <script>
-    const universeId = "5864723601"; // Replace with your actual universeId if it changes
+    const universeId = "5864723601"; // Replace with your actual universeId
 
-    fetch(`https://games.roblox.com/v1/games?universeIds=${universeId}`)
-      .then(res => res.json())
+    // You can switch to useCORSProxy = true if you suspect CORS issues
+    const useCORSProxy = false;
+
+    // Build URL, optionally with CORS proxy
+    const baseUrl = `https://games.roblox.com/v1/games?universeIds=${universeId}`;
+    const url = useCORSProxy 
+      ? `https://cors-anywhere.herokuapp.com/${baseUrl}` 
+      : baseUrl;
+
+    fetch(url)
+      .then(res => {
+        console.log('Response status:', res.status);
+        return res.json();
+      })
       .then(data => {
-        const game = data.data[0];
-        document.getElementById("player-count").innerText =
-          `${game.playing} currently playing`;
+        console.log('Received data:', data);
+        if (data.data && data.data.length > 0) {
+          const game = data.data[0];
+          document.getElementById("player-count").innerText =
+            `${game.playing} currently playing`;
+        } else {
+          document.getElementById("player-count").innerText = "0";
+          console.warn("No game data found in response.");
+        }
       })
       .catch(err => {
         document.getElementById("player-count").innerText = "0";
