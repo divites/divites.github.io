@@ -3,25 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yxx | Portfolio</title>
+  <title>ar_qx | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
     <section class="hero">
-      <h1>xxx</h1>
-      <p class="subtitle">Web Developer · Designer · Programmer</p>
+      <h1>ar_qx</h1>
+      <p class="subtitle">Game Producer · Programmer</p>
       <a href="#projects" class="btn">View Work</a>
     </section>
 
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <div class="project-card">
-        <h3>Project Title</h3>
+
+      <div class="project-card" id="color-match-widget">
+        <h3>Colour Match</h3>
         <p>Brief description of what it does.</p>
+        <p id="player-count">Loading player count...</p>
         <p>
-          <a href="#">GitHub</a> · <a href="#">Live</a>
+          <a href="#">GitHub</a> · 
+          <a href="https://www.roblox.com/games/18333663841/Color-Match" target="_blank">Play</a>
         </p>
       </div>
     </section>
@@ -30,5 +33,21 @@
       <p>© 2025 </p>
     </footer>
   </main>
+
+  <script>
+    const universeId = "5864723601"; // Replace with your actual universeId if it changes
+
+    fetch(`https://games.roblox.com/v1/games?universeIds=${universeId}`)
+      .then(res => res.json())
+      .then(data => {
+        const game = data.data[0];
+        document.getElementById("player-count").innerText =
+          `${game.playing} currently playing`;
+      })
+      .catch(err => {
+        document.getElementById("player-count").innerText = "Unable to load player count.";
+        console.error("Error fetching Roblox data:", err);
+      });
+  </script>
 </body>
 </html>
