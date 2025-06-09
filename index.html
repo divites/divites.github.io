@@ -20,7 +20,8 @@
 
       <div class="project-card" id="color-match-widget">
         <h3>Colour Match</h3>
-        <p>Brief description of what it does.</p>
+        <p>"How well do you know your colours! Stand on the correct color shown and win rewards!
+Best played with friends."</p>
         <p id="player-count">Loading player count...</p>
         <p>
           <a href="#">GitHub</a> · 
@@ -30,7 +31,7 @@
     </section>
 
     <footer>
-      <p>© 2025 </p>
+      <p>© 2025 ar_qx</p>
     </footer>
   </main>
 
@@ -45,7 +46,7 @@
           `${game.playing} currently playing`;
       })
       .catch(err => {
-        document.getElementById("player-count").innerText = "Unable to load player count.";
+        document.getElementById("player-count").innerText = "0";
         console.error("Error fetching Roblox data:", err);
       });
   </script>
