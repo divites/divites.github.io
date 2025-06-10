@@ -29,27 +29,34 @@ h1 {
 
 .btn-group {
   display: flex;
-  flex-direction: column; /* Stack vertically */
-  gap: 1rem;               /* Adds space between buttons */
-  align-items: stretch;    /* Makes buttons fill full width of container */
+  flex-direction: column;
+  gap: 12px; /* space between buttons */
+  max-width: 320px; /* optional width */
+  margin: 0 auto; /* center horizontally */
 }
 
 .btn {
   display: block;
-  width: 100%;             /* Makes button fill width of .btn-group */
-  max-width: 100%;         /* Prevent overflow */
-  padding: 12px 16px;
+  padding: 12px 18px;
+  font-size: 1rem;
   background-color: #333;
-  color: #fff;
+  color: white;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
   box-sizing: border-box;
+  width: 100%; /* full width of container */
 }
 
 .btn:hover {
   background-color: #555;
+}
+
+@media (max-width: 500px) {
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
 }
 
 
@@ -84,16 +91,4 @@ footer {
   color: #888;
 }
 
-@media (max-width: 500px) {
-  .btn {
-    font-size: 1rem;
-    padding: 10px 12px;
-    width: 100%;
-  }
-
-  .btn-group {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-}
 
