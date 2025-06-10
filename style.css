@@ -29,24 +29,29 @@ h1 {
 
 .btn-group {
   display: flex;
-  flex-direction: column;
-  gap: 10px; /* Adjust spacing between buttons */
-  margin-top: 20px;
+  flex-direction: column; /* Stack vertically */
+  gap: 1rem;               /* Adds space between buttons */
+  align-items: stretch;    /* Makes buttons fill full width of container */
 }
 
 .btn {
-  text-decoration: none;
-  padding: 10px 20px;
+  display: block;
+  width: 100%;             /* Makes button fill width of .btn-group */
+  max-width: 100%;         /* Prevent overflow */
+  padding: 12px 16px;
   background-color: #333;
   color: #fff;
-  border-radius: 8px;
   text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
   transition: background-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .btn:hover {
   background-color: #555;
 }
+
 
 
 .projects {
