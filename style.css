@@ -36,17 +36,12 @@ h1 {
 }
 
 .btn {
-  display: block;
-  padding: 12px 18px;
-  font-size: 1rem;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  text-decoration: none;
-  box-sizing: border-box;
-  width: 100%; /* full width of container */
+  display: block;      /* Makes buttons full width and stack vertically */
+  margin-bottom: 12px; /* Adds space between buttons */
+  width: 100%;         /* Make them fill container width */
+  box-sizing: border-box; /* Includes padding in width */
 }
+
 
 .btn:hover {
   background-color: #555;
@@ -54,10 +49,11 @@ h1 {
 
 @media (max-width: 500px) {
   .btn {
-    font-size: 0.9rem;
-    padding: 10px 14px;
+    font-size: 1rem;
+    padding: 10px 12px;
   }
 }
+
 
 
 
